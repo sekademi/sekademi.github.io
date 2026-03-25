@@ -1,0 +1,32 @@
+---
+import Breadcrumbs from '@/components/breadcrumbs.astro'
+import Link from '@/components/link.astro'
+import PageHead from '@/components/page-head.astro'
+import Layout from '@/layouts/layout.astro'
+---
+
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title="About" />
+  <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+
+  <section>
+    <div class="min-w-full">
+      <div class="prose mb-8">
+        <p class="mt-0">
+          <b>Sekademi CyberSecurity</b> is a technical platform dedicated to the
+          advancement of cybersecurity knowledge. We specialize in providing in-depth 
+          analysis of modern security threats, ethical hacking techniques, and 
+          comprehensive educational resources.
+        </p>
+        <p>
+          Our mission is to empower security researchers and enthusiasts through high-quality,
+          accessible content. Join our community to stay updated with the latest in 
+          network security, reverse engineering, and threat intelligence.
+        </p>
+      </div>
+      <p class="text-muted-foreground text-sm">
+        To see our latest community work, visit our dedicated <Link href="/projects" underline>Projects</Link> page.
+      </p>
+    </div>
+  </section>
+</Layout>
