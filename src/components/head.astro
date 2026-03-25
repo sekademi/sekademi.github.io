@@ -49,5 +49,15 @@ import Favicons from './favicons.astro'
   <Favicons />
   <ClientRouter />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGFQSSME8T"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RGFQSSME8T');
+  </script>
+
   <slot />
 </head>
