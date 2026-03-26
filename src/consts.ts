@@ -1,9 +1,9 @@
 import type { IconMap, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
-  title: 'Sekademi',
+  title: 'Sekademi CyberSecurity',
   description:
-    'Sekademi CyberSecurity',
+    'Sharing Knowledge, Building the Future',
   href: 'https://sekademi.github.io',
   author: 'Sekademi',
   locale: 'en-US',
