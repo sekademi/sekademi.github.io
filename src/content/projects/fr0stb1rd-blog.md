@@ -4,5 +4,5 @@ description: 'A comprehensive technical blog exploring the depths of cybersecuri
 tags: ['Cybersecurity', 'Reverse Engineering', 'Cryptography', 'Exploit Development']
 image: '../../../public/static/fr0stb1rd-banner.jpg'
 link: 'https://fr0stb1rd.gitlab.io'
-startDate: '2023-01-01'
+startDate: '2020-05-28'
 ---
