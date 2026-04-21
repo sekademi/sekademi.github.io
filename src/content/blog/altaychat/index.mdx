@@ -1,0 +1,38 @@
+---
+title: 'AltayChat: Reclaiming Privacy with Peer-to-Peer Audio'
+description: 'An inside look at AltayChat, a high-performance C++ application that enables secure, encrypted P2P voice communication without central servers.'
+date: 2026-04-21
+tags: ['AltayChat', 'WebRTC', 'C++', 'P2P', 'Privacy', 'Audio']
+image: '../../../../public/static/altaychat-cover.jpg'
+authors: ['fr0stb1rd']
+---
+
+In an era where central servers often act as middlemen for our most private conversations, **AltayChat** emerges as a solution built on the principles of decentralization and security. It is a cross-platform, peer-to-peer (P2P) voice chat application that allows two individuals to communicate directly without a central audio server eavesdropping or storing data.
+
+## 🚀 Key Features
+
+AltayChat is designed for users who prioritize privacy without sacrificing audio quality:
+
+- **True P2P Architecture**: Audio data flows directly between users. No server listens to, processes, or stores your voice.
+- **High-Quality Audio**: Powered by the **Opus codec** (48kHz Mono), providing crystal clear sound even in challenging network conditions.
+- **End-to-End Encryption**: Utilizes **DTLS-SRTP** to ensure that your conversations remain private and secure from interception.
+- **Advanced Firewall Traversal**: Supports **Cloudflare TURN** relay to bypass strict firewalls and Symmetric NATs, ensuring connectivity in corporate or restricted environments.
+- **Low Latency Performance**: Built with C++ and featuring lock-free buffers and event-driven threads for a real-time, lag-free experience.
+
+## 🛠️ Technical Excellence
+
+Under the hood, AltayChat leverages a modern technical stack to achieve its performance goals:
+
+- **Networking**: `libdatachannel` for robust WebRTC implementation.
+- **Audio Processing**: `libopus` for encoding/decoding and `PortAudio` for cross-platform audio I/O.
+- **Signaling**: A custom-built signaling server running on **Cloudflare Workers** with **Durable Objects** handles the initial handshake seamlessly.
+
+## 🔒 Security and Privacy by Design
+
+Privacy isn't just a feature in AltayChat; it's the foundation. By default, the application attempts direct connections. When direct paths are blocked, it falls back to encrypted TURN relays. The signaling server only facilitates the exchange of connection metadata (SDP and ICE candidates) and never touches the actual media stream.
+
+## Conclusion
+
+AltayChat isn't just another chat app; it's a statement about user sovereignty in the digital age. By combining the power of WebRTC with the efficiency of C++, it provides a professional-grade tool for secure, private, and high-performance communication.
+
+Ready to secure your conversations? [Check out AltayChat on GitHub!](https://github.com/fr0stb1rd/altaychat)
