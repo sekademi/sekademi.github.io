@@ -249,9 +249,7 @@ The engine drives an official web page through its internal services. That is wh
 - Disallowed or region-locked tracks trigger the fallback engine, which is a different source by definition.
 - Spotufi is not affiliated with or endorsed by Spotify AB. The project is for educational purposes, and users are encouraged to support artists through Spotify Premium and official purchases.
 
-## 🙏 Credits and License
-
-Spotufi builds on several open-source projects: [Spotifusion](https://github.com/p1di/spotifusion), [SpotiDuck](https://github.com/SpotiDuck), [Myspoti / Spotui](https://github.com/kota-zo/myspoti) (Web Player WebView bridge architecture), [BitChord](https://github.com/kushagrasinghx/BitChord) and [NewPipeExtractor](https://github.com/TeamNewPipe/NewPipeExtractor) (fallback path), [SpotiFLAC](https://github.com/spotbye/SpotiFLAC) (lossless resolving), [LRCLIB](https://lrclib.net) (synced lyrics), [Measure](https://github.com/measure-sh/measure) (crash reporting), [SimpMusic](https://github.com/maxrave-dev/SimpMusic) (crossfade and audio filters), [Metrolist](https://github.com/mostafaalagamy/Metrolist), [Meld](https://github.com/FrancescoGrazioso/Meld), [Neptune](https://github.com/navneet851/spotify-clone-jetpack-compose) and the Spotui forks. Full notices are in `THIRD_PARTY_NOTICES.md`.
+## 🙏 License
 
 Spotufi is free software under the **GNU GPL v3 or later**.
 
