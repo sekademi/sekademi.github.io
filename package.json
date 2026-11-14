@@ -25,7 +25,7 @@
     "hast-util-select": "^6.0.4",
     "hast-util-to-html": "^9.0.6",
     "hastscript": "^9.0.3",
-    "satteri": "^0.9.5",
+    "satteri": "^0.10.5",
     "satteri-expressive-code": "^0.1.32",
     "temml": "^0.13.5"
   },
