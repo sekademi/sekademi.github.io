@@ -12,7 +12,7 @@ tags:
     'Widevine',
     'Open Source',
   ]
-image: '../../../../public/static/spotufi-cover.jpg'
+image: '../../../assets/covers/spotufi-cover.jpg'
 authors: ['fr0stb1rd']
 ---
 
@@ -47,7 +47,9 @@ A common assumption is that an app like this resolves a song on Spotify and stre
 | **Lossless FLAC**               | Only for downloads the user requests                                             | SpotiFLAC resolves the same recording from TIDAL, Qobuz or Amazon and verifies it by ISRC (or title and artist within 3 s). |
 | **Local files**                 | Audio files on the device                                                        | Device storage, played through Media3 ExoPlayer.                                                                    |
 
-> **Note:** Streaming quality follows the Web Player's own levels: Auto, Low, Normal and High. There is no artificial "320 kbps" switch; the engine plays what Spotify serves. Lossless audio belongs to the download path, not the stream.
+:::note
+Streaming quality follows the Web Player's own levels: Auto, Low, Normal and High. There is no artificial "320 kbps" switch; the engine plays what Spotify serves. Lossless audio belongs to the download path, not the stream.
+:::
 
 ## 🏗️ Architecture
 
@@ -237,7 +239,9 @@ Debug APKs land in `base/app/build/outputs/apk/debug/`. All dependency and toolc
 
 ## ⚖️ Limits and Trade-offs
 
-> **Warning:** The engine drives an official web page through its internal services. That is what makes the stream authentic, but it also ties the project to the Web Player's structure. A change on Spotify's side can break the bridge or the GraphQL operation hashes until they are updated.
+:::warning
+The engine drives an official web page through its internal services. That is what makes the stream authentic, but it also ties the project to the Web Player's structure. A change on Spotify's side can break the bridge or the GraphQL operation hashes until they are updated.
+:::
 
 - Streaming quality is the Web Player's, not an arbitrary bitrate setting.
 - Jam: Spotify answers `RESTRICTED` when a free account tries to **start** a Jam; joining and the rest are wired.

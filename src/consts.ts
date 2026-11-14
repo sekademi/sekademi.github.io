@@ -1,55 +1,31 @@
-import type { IconMap, SocialLink, Site } from '@/types'
+import type { SvgComponent } from "astro/types"
+import Email from "@/assets/icons/email.svg"
+import GitHub from "@/assets/icons/github.svg"
+import LinkedIn from "@/assets/icons/linkedin.svg"
+import RSS from "@/assets/icons/rss.svg"
 
-export const SITE: Site = {
-  title: 'Sekademi CyberSecurity',
-  description:
-    'Sharing Knowledge, Building the Future',
-  href: 'https://sekademi.github.io',
-  author: 'Sekademi',
-  locale: 'en-US',
-  featuredPostCount: 2,
-  postsPerPage: 0,
-}
+export const SITE = {
+  title: "Sekademi CyberSecurity",
+  description: "Sharing Knowledge, Building the Future",
+  locale: "en-US",
+  dir: "ltr",
+  defaultPageImage: "/static/1200x630.png",
+  defaultPostImage: "/static/1200x630.png",
+} as const
 
-export const NAV_LINKS: SocialLink[] = [
-  {
-    href: '/blog',
-    label: 'blog',
-  },
-  {
-    href: '/projects',
-    label: 'projects',
-  },
-  {
-    href: '/about',
-    label: 'about',
-  },
+export const NAVIGATION = [
+  { href: "/blog", label: "Blog" },
+  { href: "/projects", label: "Projects" },
+  { href: "/about", label: "About" },
 ]
 
-export const SOCIAL_LINKS: SocialLink[] = [
+export const SOCIALS: { href: string; label: string; icon: SvgComponent }[] = [
+  { href: "https://github.com/sekademi", label: "GitHub", icon: GitHub },
   {
-    href: 'https://github.com/sekademi',
-    label: 'GitHub',
+    href: "https://linkedin.com/company/sekademi",
+    label: "LinkedIn",
+    icon: LinkedIn,
   },
-  {
-    href: 'https://linkedin.com/company/sekademi',
-    label: 'LinkedIn',
-  },
-  {
-    href: 'mailto:sekademicyber@gmail.com',
-    label: 'Email',
-  },
-  {
-    href: '/rss.xml',
-    label: 'RSS',
-  },
+  { href: "mailto:sekademicyber@gmail.com", label: "Email", icon: Email },
+  { href: "/rss.xml", label: "RSS", icon: RSS },
 ]
-
-export const ICON_MAP: IconMap = {
-  Website: 'lucide:globe',
-  GitHub: 'lucide:github',
-  LinkedIn: 'lucide:linkedin',
-  Twitter: 'lucide:twitter',
-  Email: 'lucide:mail',
-  RSS: 'lucide:rss',
-}

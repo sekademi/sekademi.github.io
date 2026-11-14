@@ -1,66 +1,115 @@
 ---
-import BlogCard from '@/components/blog-card.astro'
-import Link from '@/components/link.astro'
-import PageHead from '@/components/page-head.astro'
-import { buttonVariants } from '@/components/ui/button'
-import { SITE } from '@/consts'
-import Layout from '@/layouts/layout.astro'
-import { getRecentPosts } from '@/lib/data-utils'
+import BlogCard from "@/components/BlogCard.astro"
+import MetaPage from "@/components/MetaPage.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getPosts } from "@/lib/content"
 
-const blog = await getRecentPosts(SITE.featuredPostCount)
+const latest = (await getPosts()).slice(0, 2)
 ---
 
-<Layout class="max-w-3xl">
-  <PageHead slot="head" title="Home" />
-  <section class="rounded-lg border">
-    <div class="flex flex-col space-y-1.5 p-6">
-      <h3 class="text-3xl leading-none font-medium text-primary">sek·a·dem·i</h3>
-      <p class="text-muted-foreground text-sm">
-        /sekˌaˈdemē/ &bull; <span class="font-medium">noun</span>
+<Layout>
+  <MetaPage slot="head" />
+  <dictionary-entry>
+    <h1>sek·a·dem·i</h1>
+    <etymology-span>
+      <ipa-span>/sekˌaˈdemē/</ipa-span>
+      noun
+    </etymology-span>
+    <hr>
+    <prose-content>
+      <p>
+        <b>Sekademi</b> is a community platform providing in-depth technical
+        analysis, modern educational content, and up-to-date cyber threat
+        reports for the cybersecurity world.
       </p>
-    </div>
-    <div class="p-6 pt-0">
-      <p class="text-muted-foreground mb-4 text-sm">
-        <b>Sekademi</b> is a community platform providing in-depth technical analysis,
-        modern educational content, and up-to-date cyber threat reports for the cybersecurity world.
-      </p>
-      <p class="text-muted-foreground text-sm">
-        Our platform features original articles on topics such as ethical hacking, network security, 
-        reverse engineering, and CTF solutions. Follow us on <Link
+      <p>
+        Our platform features original articles on topics such as ethical
+        hacking, network security, reverse engineering, and CTF solutions.
+        Follow us on
+        <a
           href="https://linkedin.com/company/sekademi"
-          class="text-foreground"
-          external
-          underline>LinkedIn</Link
-        > for updates or explore our <Link
-          href="https://github.com/sekademi"
-          class="text-foreground"
-          external
-          underline>GitHub</Link
-        > projects.
-      </p>
-    </div>
-  </section>
-  <section class="flex flex-col gap-y-4">
-    <h2 class="text-2xl font-medium">Latest posts</h2>
-    <ul class="flex flex-col gap-y-4">
-      {
-        blog.map((post) => (
-          <li>
-            <BlogCard entry={post} />
-          </li>
-        ))
-      }
-    </ul>
-    <div class="flex justify-center">
-      <Link
-        href="/blog"
-        class={buttonVariants({ variant: 'ghost' }) + ' group'}
-      >
-        See all posts <span
-          class="ml-1.5 transition-transform group-hover:translate-x-1"
-          >&rarr;</span
+          target="_blank"
+          rel="noopener noreferrer">LinkedIn</a
         >
-      </Link>
-    </div>
-  </section>
+        for updates or explore our
+        <a
+          href="https://github.com/sekademi"
+          target="_blank"
+          rel="noopener noreferrer">GitHub</a
+        >
+        projects.
+      </p>
+    </prose-content>
+  </dictionary-entry>
+  {latest.length > 0 && (
+      <latest-posts>
+        <h2>Latest posts</h2>
+        <ul>
+          {latest.map((post) => <BlogCard post={post} />)}
+        </ul>
+        <a href="/blog">View all posts</a>
+      </latest-posts>
+    )}
 </Layout>
+
+<style>
+  dictionary-entry {
+    display: block;
+    font-size: var(--step-0);
+    color: var(--muted-foreground);
+
+    @media (width >= 64rem) {
+      margin-block-start: -0.2em;
+    }
+
+    ipa-span {
+      opacity: 0.6;
+    }
+
+    h1 {
+      font-size: var(--step-2);
+      line-height: calc(var(--leading-offset) + 1em);
+      font-weight: var(--font-weight-medium);
+      color: var(--foreground);
+      margin-block-end: var(--space-2xs);
+    }
+
+    hr {
+      margin-block: var(--space-m);
+      border-block-start: 2px solid var(--border);
+    }
+
+    prose-content {
+      margin-block-start: var(--space-xs);
+    }
+  }
+
+  latest-posts {
+    display: block;
+    margin-block-start: var(--space-xl);
+
+    h2 {
+      font-size: var(--step-1);
+      font-weight: var(--font-weight-medium);
+      color: var(--foreground);
+      margin-block-end: var(--space-s);
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-m);
+    }
+
+    > a {
+      display: inline-block;
+      margin-block-start: var(--space-s);
+      font-size: var(--step--1);
+      color: var(--muted-foreground);
+
+      &:hover {
+        color: var(--foreground);
+      }
+    }
+  }
+</style>

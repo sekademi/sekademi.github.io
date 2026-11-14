@@ -1,14 +1,13 @@
 ## [Sekademi CyberSecurity](https://sekademi.github.io)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Astro](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff)](#technology-stack)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=fff)](#technology-stack)
 
 **Sekademi** is a cybersecurity-focused blog and project showcase. It serves as a platform for sharing technical insights, write-ups, and showcasing innovative tools developed by the Sekademi team.
 
 ## 🚀 Quick Start
 
-Ensure you have [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed.
+Ensure you have [Node.js](https://nodejs.org/) 22.12 or newer installed.
 
 1. **Clone the repository:**
    ```bash
@@ -18,37 +17,52 @@ Ensure you have [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) inst
 
 2. **Install dependencies:**
    ```bash
-   pnpm install
+   npm install
    ```
 
 3. **Start the development server:**
    ```bash
-   pnpm run dev
+   npm run dev
    ```
 
 4. **Build for production:**
    ```bash
-   pnpm run build
+   npm run build
    ```
 
 ## 🛠️ Technology Stack
 
-This site is built with modern web technologies:
-
-| Category   | Technology                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------ |
-| Framework  | [Astro](https://astro.build/)                                                              |
-| Styling    | [Tailwind CSS](https://tailwindcss.com)                                                    |
-| Components | [shadcn/ui](https://ui.shadcn.com/)                                                        |
-| Content    | [MDX](https://mdxjs.com/)                                                                  |
-| Codeblocks | [Expressive Code](https://expressive-code.com/)                                            |
+| Category   | Technology                                                  |
+| ---------- | ----------------------------------------------------------- |
+| Framework  | [Astro 7](https://astro.build/)                             |
+| Styling    | Native CSS (no UI or CSS framework)                         |
+| Content    | Markdown, processed with [Sätteri](https://satteri.dev/)    |
+| Codeblocks | [Expressive Code](https://expressive-code.com/)             |
+| Math       | [Temml](https://temml.org/) (MathML)                        |
 
 ## 📂 Project Structure
 
-- `src/content/blog/`: Markdown/MDX files for blog posts.
-- `src/content/projects/`: Markdown files for project showcases.
-- `src/content/authors/`: Profiles for the Sekademi team members.
-- `public/`: Static assets like images and favicons.
+- `src/content/blog/<slug>/index.md`: blog posts. Cover images live in `src/assets/covers/`.
+- `src/content/projects/`: project showcase entries.
+- `src/content/authors/`: profiles of the Sekademi team members.
+- `src/pages/`: home, about, blog, projects, authors and tag pages.
+- `src/consts.ts`: site title, navigation and social links.
+- `public/`: favicons, web manifest and the default social image.
+
+### Writing a post
+
+```markdown
+---
+title: 'My post'
+description: 'One sentence summary.'
+date: 2026-11-14
+tags: ['Tag']
+image: '../../../assets/covers/my-cover.jpg'
+authors: ['fr0stb1rd']
+---
+```
+
+Callouts use directives: `:::note`, `:::tip`, `:::warning` and `:::caution`. `authors` is required and must match a file name in `src/content/authors/`.
 
 ## 🔗 Links
 
@@ -57,4 +71,4 @@ This site is built with modern web technologies:
 - **LinkedIn**: [Sekademi](https://linkedin.com/company/sekademi)
 - **Email**: [sekademicyber@gmail.com](mailto:sekademicyber@gmail.com)
 
-Built with &hearts; by [Sekademi](https://github.com/sekademi) using the [astro-erudite](https://github.com/jktrn/astro-erudite) template.
+Built by [Sekademi](https://github.com/sekademi) using the [astro-erudite](https://github.com/jktrn/astro-erudite) template (v2).
